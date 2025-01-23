@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import img from './image (8).png';
+import img1 from './image (8).png';
+import img2 from './Nathan.jpeg'
+
+const images = [
+  {src: img1, caption: "Road Unicycle"},
+  {src: img2, caption: "Homeless guy with an iPad"},
+]
 
 function App() {
   const [sparkles, setSparkles] = useState([])
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [pressed, setPressed] = useState(false)
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -25,13 +33,19 @@ function App() {
     }
   }, [])
 
+  const handleImageClick = () => {
+    setPressed(true);
+    setTimeout(() => setPressed(false), 100); 
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
   return (
     <>
       <div className="App">
         <div className="App-header">
           <h1>👇 The coolest thing right now</h1>
-          <img src={img} alt="Coolest thing" />
-          <p>Road Unicycle</p>
+          <img src={images[currentIndex]. src} alt="Coolest thing" className={pressed ? 'pressed' : ''} onClick = {handleImageClick}/>
+          <p>{images[currentIndex].caption}</p>
         </div>
         <div className="sparkle-container">
           {sparkles.map((sparkle) => (
