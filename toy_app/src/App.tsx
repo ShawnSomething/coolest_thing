@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import img1 from './image (8).png';
-import img2 from './Nathan.jpeg'
+import img2 from './Nathan.jpeg';
+import img3 from './skateboard.png';
+import img4 from './Blasthopper.png'
 
 const images = [
   {src: img1, caption: "Road Unicycle"},
   {src: img2, caption: "Homeless guy with an iPad"},
+  {src: img3, caption: "Cool Skateboard dude"},
+  {src: img4, caption: "Blasthopper Game"},
 ]
 
 function App() {
